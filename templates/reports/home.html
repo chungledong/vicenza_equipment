@@ -1,0 +1,48 @@
+{% extends 'base.html' %} 
+{% block title %}
+    Home Reports
+{%endblock title %} 
+{% block content %}
+    <h1>Report</h1>
+    <br>
+    {{name}}
+
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+          <div class="card">
+            <img src="http://placeimg.com/640/480/any" class="card-img-top" alt="..." width = "120">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">{% lorem 1 b random %} .</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="http://placeimg.com/640/480/any" class="card-img-top" alt="..."  width = "120">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text"> {% lorem 1 b random %}  </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="http://placeimg.com/640/480/any" class="card-img-top" alt="..."  width = "120">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">{% lorem 1 b random %} </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="http://placeimg.com/640/480/any" class="card-img-top" alt="..." width = "120">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">{% lorem 1 b random %} .</p>
+            </div>
+          </div>
+        </div>
+      </div>
+{% endblock content %}

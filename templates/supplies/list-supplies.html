@@ -1,0 +1,60 @@
+{% extends 'base.html' %} 
+{% block title %}
+    {{title}}
+{%endblock title %} 
+{% block content %}
+{% if gsupplies %}
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for obj in gsupplies %}
+        <div class="col">
+          <div class="card shadow-sm">
+              <div class="card-body">
+                  <div class="text-center">Mã vật tư: {{obj.code}}.</div>
+                  <div class="text-center">Tên vật tư: {{obj.name}}.</div>                    
+              </div>              
+              <img src="/media/{{obj.image}}" alt="{{obj.name}}" width='100%' height="250px">
+              <div class="card-body">
+                 <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group mt-3">
+                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href={{obj.get_absolute_url}}>View</a></button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  </div>
+                  <small class="text-muted">{{obj.updated_date}}</small>
+              </div> 
+              </div>                
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+      <span class="step-links">
+          {% if page_obj.has_previous %}
+          <a href="?page=1">&laquo; first</a>
+          <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+          {% endif %}
+
+          <span class="current">
+              Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+          </span>
+
+          {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}">next</a>
+          <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+          {% endif %}
+      </span>
+  </div>
+</div>
+{% else %}
+<div class="alert alert-danger" role="alert">
+  Nhóm vật tư này không có dữ liệu!....
+</div>
+{% endif %}
+
+
+
+{% endblock content %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %} 
+{% block title %}
+    Home Supplies
+{%endblock title %} 
+{% block content %}
+    <h1>Supplies</h1>
+    <br>
+    {{name}}
+
+    <div class="card-group">
+      
+        <div class="row">
+            {% for item in '12354789654788' %}
+            <div class="col-md-4">
+               <div class="card ">
+                <img src="http://placeimg.com/640/480/any" class="card-img-top" alt="..." width="50px">
+                <div class="card-body">
+                <h5 class="card-title">Card title {{item}}</h5>
+                <p class="card-text"> {% lorem 1 b random %}</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div> 
+            </div>
+            {% endfor %}  
+        </div>            
+            
+             
+        
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %} 
+{% block title %}
+    List Device
+{%endblock title %} 
+{% block content %}
+<div class="card-group">
+    <div class="d-flex align-items-center">
+        <div class="flex-shrink-0">
+          <img src="/media/{{groupdevice.image}}" alt="..." width='300px'>
+        </div>
+        <div class="flex-grow-1 ms-3">
+          <ul>
+              <li>Mã thiết bị: {{groupdevice.code}} </li>
+              <li>Tên thiết bị thiết bị: {{groupdevice.name}} </li>
+          </ul>
+        </div>
+        
+      </div>
+    <h1>Danh sách thiết bị thuộc nhóm:</h1>
+
+    <div class="card-group mt-3">
+        <div class="row">
+            {% for obj in object_list %}
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/media/{{obj.image}}" class="card-img-top" alt="..." width='50px'>
+                    <div class="card-body">
+                    <h5 class="card-title">Mã thiết bị: {{obj.code}}</h5>                
+                    <h5 class="card-title">Tên thiết bị: <a href=" {{obj.get_absolute_url}} ">{{obj.name}}</a>  </h5>                    
+                    <p>
+                        <a class="btn btn-primary" data-bs-toggle="collapse" href="#{{obj.code}}" role="button" aria-expanded="false" aria-controls="{{obj.code}}">
+                        Mô tả
+                        </a>
+                    </p>
+                    <div class="collapse" id="{{obj.code}}">
+                        <div class="card card-body">
+                            {{obj.description|safe}}
+                        </div>
+                    </div>
+                    <p class="card-text"><small class="text-muted">Ngày cập nhật: {{obj.updated_date}}</small></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>        
+    </div>
+    
+{% endblock content %}

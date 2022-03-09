@@ -1,0 +1,69 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- favicon -->
+        <link rel="shortcut icon" href=" {% static 'favicon.ico' %} ">
+        <title>Equipment | {% block title %}{% endblock title %} </title>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <!-- Dropzone js -->        
+        
+        <link rel="stylesheet" href="{% static 'dropzone/dropzone.min.css' %}">
+        <!-- Custom js & css -->
+        <link rel="stylesheet" href="{% static 'mystyle/style.css' %}">
+        
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+                               
+        <div class="container">
+            <div class="row justify-content-md-center" >
+              <div class="col-md-auto ">
+                <span><img src="/media/logo/logo-dam.png" alt="" width="200px"></span>
+              </div>                  
+            </div>
+            <div class="row justify-content-md-center bg-light p-3" >
+                <div class="col-md-auto">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <div class="input-group mb-3">            
+                        {{form|crispy}}
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <button class="btn btn-primary" type="submit"> <img src="/media/logo/logo-dam.png" alt="Tìm kiếm" width="20px"> </button>                        
+                    </div>
+                    </form>
+                    
+                </div>                  
+              </div>                
+        </div>
+        <!-- Bootstrap js -->
+        <script src="{% static 'dropzone/dropzone.min.js'  %}" async defer></script>
+        <script src="{% static 'popper/popper.min.js' %}" async defer></script>
+        <script src="{% static 'js/bootstrap.min.js' %}" async defer ></script>    
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous" async defer></script>
+        <script src="{% static 'jquery/jquery-3.6.0.min.js'  %}" async defer></script>
+        <script src="{% static 'jquery/jquery.bootstrap.modal.forms.js' %}" async defer></script>
+        <!-- You can alternatively load the minified version -->
+        <script src="{% static 'jquery/jquery.bootstrap.modal.forms.min.js' %}"></script>
+        
+        {% block scripts %}{% endblock scripts %}
+        <script src="" async defer></script>
+    </body>
+</html>

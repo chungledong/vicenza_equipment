@@ -1,0 +1,35 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+    Home Device
+{%endblock title %} 
+{% block content %}
+    <h1>Device</h1>
+    <br>
+    {{name}}
+    <div class="L3eUgb">
+        <div class="o3j99 n1xJcf Ne6nSd"> </div>
+    </div>
+    <div class="card-group">
+      
+        <div class="row">
+            {% for item in '123547' %}
+            <div class="col-md-4">
+               <div class="card ">
+                <img src="http://placeimg.com/640/480/any" class="card-img-top" alt="..." width="50px">
+                <div class="card-body">
+                <h5 class="card-title">Card title {{item}}</h5>
+                <p class="card-text"> {% lorem 1 b random %}</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div> 
+            </div>
+            {% endfor %}  
+        </div>            
+            
+             
+        
+    </div>
+
+{% endblock content %}

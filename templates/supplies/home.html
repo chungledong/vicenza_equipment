@@ -1,0 +1,54 @@
+
+{% extends 'base.html' %} 
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+    {{title}}
+{%endblock title %} 
+{% block content %}        
+<div class="row justify-content-md-center" >
+    <div class="col-md-auto ">
+      <span><img src="{% static 'logo/logo-dam.png' %}" alt="" width="150px"></span>
+    </div>                  
+</div>
+<div class="row justify-content-md-center p-3" >
+      <div class="col-md-auto">
+          <form action="." role="search" method="POST">
+              {% csrf_token %}
+              <div class="input-group mb-3">            
+              {{form|crispy}}
+              <div class="valid-feedback">
+                  Looks good!
+              </div>
+              <button class="btn btn-primary" type="submit"> <img src="{% static 'logo/logo-dam.png' %}" alt="Tìm kiếm" width="20px"> </button>                        
+          </div>
+          </form>                    
+      </div>                  
+</div> 
+{% if supplies %}   
+ <div class="album py-5">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for supp in supplies %}
+          <div class="col">
+              <div class="card shadow-sm">              
+              <img src="/media/{{supp.image}}" alt="{{supp.name}}" width='100%' height="225px">
+              <div class="card-body">
+                  <div class="text-center">Mã vật tư: {{supp.code}}.</div>
+                  <div class="text-center">Tên vật tư: {{supp.name}}.</div>
+                  <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group mt-3">
+                      <button type="button" class="btn btn-sm btn-outline-secondary"><a href={{supp.get_absolute_url}}>View</a></button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  </div>
+                  <small class="text-muted">{{supp.updated_date}}</small>
+                  </div>
+              </div>
+              </div>
+          </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endif %}   
+ 
+{% endblock content %}
